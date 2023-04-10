@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/Resources/UI/Editor/GameEventResponseStyles.uss?fileID=7433441132597879392&amp;guid=1dddf61f4ebf0b042bdaf9f4409dd6fd&amp;type=3#GameEventResponseStyles" />
+    <ui:IMGUIContainer name="Container" class="Background" style="flex-grow: 1; height: 100%;">
+        <uie:ObjectField label="Target" name="TargetField" type="UnityEngine.Object, UnityEngine.CoreModule" binding-path="Target" />
+        <ui:DropdownField label="Method" index="-1" choices="System.Collections.Generic.List`1[System.String]" name="MethodDropdown" binding-path="m_MethodName" />
+        <ui:VisualElement name="TargetMethodParams" class="MethodControls" style="flex-grow: 1;" />
+    </ui:IMGUIContainer>
+</ui:UXML>

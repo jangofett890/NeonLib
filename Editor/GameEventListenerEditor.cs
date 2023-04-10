@@ -21,10 +21,10 @@ namespace NeonLib.Editor {
         private ListView _responseListView;
 
         public override VisualElement CreateInspectorGUI() {
-            _treeAsset = Resources.Load<VisualTreeAsset>("UI/Editor/GameEventListenerInspector");
+            _treeAsset = Resources.Load<VisualTreeAsset>("UI/Editor/NeonLib/GameEventListenerInspector");
             _listener = (GameEventListener)target;
             _RootElement = new VisualElement();
-            _RootElement.styleSheets.Add(Resources.Load<StyleSheet>("UI/Editor/GameEventListenerStyles"));
+            _RootElement.styleSheets.Add(Resources.Load<StyleSheet>("UI/Editor/NeonLib/GameEventListenerStyles"));
             _RootElement.Add(_treeAsset.CloneTree());
             _RemoveGameEventResponse = _RootElement.Q<Button>("Remove");
             _AddGameEventResponse = _RootElement.Q<Button>("Add");

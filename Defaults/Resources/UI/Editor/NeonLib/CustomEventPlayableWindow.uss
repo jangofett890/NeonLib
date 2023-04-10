@@ -1,0 +1,15 @@
+.main-container {
+    flex-direction: column;
+}
+
+Label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #FFF;
+    margin-bottom: 2px;
+}
+
+EnumField,
+ObjectField {
+    margin-bottom: 10px;
+}

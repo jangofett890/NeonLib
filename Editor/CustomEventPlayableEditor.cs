@@ -20,10 +20,10 @@ namespace NeonLib.Editor {
             private ObjectField _targetStateField;
 
             public override VisualElement CreateInspectorGUI() {
-                _treeAsset = Resources.Load<VisualTreeAsset>("UI/Editor/CustomEventPlayableInspector");
+                _treeAsset = Resources.Load<VisualTreeAsset>("UI/Editor/NeonLib/CustomEventPlayableInspector");
                 _customEventPlayable = (CustomEventPlayable)target;
                 _rootElement = new VisualElement();
-                _rootElement.styleSheets.Add(Resources.Load<StyleSheet>("UI/Editor/CustomEventPlayableStyles"));
+                _rootElement.styleSheets.Add(Resources.Load<StyleSheet>("UI/Editor/NeonLib/CustomEventPlayableStyles"));
                 _rootElement.Add(_treeAsset.CloneTree());
 
                 _clipTypeField = _rootElement.Q<EnumField>("ClipTypeField");

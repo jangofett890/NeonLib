@@ -23,10 +23,10 @@ namespace NeonLib.Editor {
         private VisualElement _valueContainer;
 
         public override VisualElement CreateInspectorGUI() {
-            _treeAsset = Resources.Load<VisualTreeAsset>("UI/Editor/ScriptableVariableEditor");
+            _treeAsset = Resources.Load<VisualTreeAsset>("UI/Editor/NeonLib/ScriptableVariableEditor");
             _variable = (ScriptableVariable)target;
             _RootElement = new VisualElement();
-            _RootElement.styleSheets.Add(Resources.Load<StyleSheet>("UI/Editor/ScriptableVariableStyles"));
+            _RootElement.styleSheets.Add(Resources.Load<StyleSheet>("UI/Editor/NeonLib/ScriptableVariableStyles"));
             _RootElement.Add(_treeAsset.CloneTree());
             _typeDropdown = _RootElement.Q<DropdownField>("ValueType");
             _valueContainer = _RootElement.Q<VisualElement>("ValueContainer");

@@ -1,0 +1,27 @@
+.Background {
+    flex-grow: 1;
+}
+
+.ResponsesContainer {
+    background-color: rgb(70, 70, 70);
+    border-left-color: rgb(26, 26, 26);
+    border-right-color: rgb(26, 26, 26);
+    border-top-color: rgb(26, 26, 26);
+    border-bottom-color: rgb(26, 26, 26);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.ResponseItemContainer {
+    flex-grow: 1;
+}
+
+.EditorContainer {
+    flex-grow: 1;
+}

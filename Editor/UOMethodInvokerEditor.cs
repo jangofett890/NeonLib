@@ -22,10 +22,10 @@ namespace NeonLib.Editor {
         private VisualElement _targetMethodParams;
 
         public override VisualElement CreateInspectorGUI() {
-            _treeAsset = Resources.Load<VisualTreeAsset>("UI/Editor/UOMethodInvokerInspector");
+            _treeAsset = Resources.Load<VisualTreeAsset>("UI/Editor/NeonLib/UOMethodInvokerInspector");
             _response = (UOMethodInvoker)target;
             _RootElement = new VisualElement();
-            _RootElement.styleSheets.Add(Resources.Load<StyleSheet>("UI/Editor/UOMethodInvokerStyles"));
+            _RootElement.styleSheets.Add(Resources.Load<StyleSheet>("UI/Editor/NeonLib/UOMethodInvokerStyles"));
             _RootElement.Add(_treeAsset.CloneTree());
             _methodDropdown = _RootElement.Q<DropdownField>("MethodDropdown");
             _methodDropdown.choices = GetAvailableMethodsThroughReflection();

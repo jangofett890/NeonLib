@@ -30,6 +30,8 @@ namespace NeonLib.Events {
         public void OnEventInstanceCreated(GameEvent instance) {
             if (ListenToInstancesOnly && instance.InstanceID == AllowedInstanceID) {
                 ChangeEvent(instance);
+            } else if(!ListenToInstancesOnly && instance.name == Event?.name) {
+                instance.UnregisterListener(this);
             }
         }
 

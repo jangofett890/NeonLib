@@ -1,0 +1,17 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/Resources/UI/Editor/GameEventListenerStyles.uss?fileID=7433441132597879392&amp;guid=d147011660f07334b9823acac965bd3f&amp;type=3#GameEventListenerStyles" />
+    <ui:IMGUIContainer name="Container" class="Background" style="flex-grow: 1;">
+        <uie:ObjectField label="Event" allow-scene-objects="true" type="NeonLib.Events.GameEvent, NeonLib" name="GameEventContainer" binding-path="Event" />
+        <ui:VisualElement name="ResponsesContainer" style="flex-grow: 1;">
+            <ui:VisualElement name="ResponsesView" class="ResponsesContainer" style="flex-grow: 1;">
+                <ui:Label tabindex="-1" text="Game Event Responses" display-tooltip-when-elided="true" name="ResponsesLabel" style="border-left-color: rgb(26, 26, 26); border-right-color: rgb(26, 26, 26); border-top-color: rgb(26, 26, 26); border-bottom-color: rgb(26, 26, 26); background-color: rgb(53, 53, 53); border-bottom-width: 1px; border-top-left-radius: 1px; border-top-right-radius: 1px;" />
+                <ui:ListView focusable="true" name="ResponseListView" virtualization-method="DynamicHeight" reorderable="true" show-foldout-header="false" show-add-remove-footer="false" style="flex-grow: 1;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="ResponseControls" style="flex-grow: 1; flex-direction: row; justify-content: flex-end;">
+                <ui:Button tabindex="-1" text="+" display-tooltip-when-elided="true" name="Add" />
+                <ui:Button tabindex="-1" text="-" display-tooltip-when-elided="true" name="Remove" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <uie:PropertyField binding-path="UnityEventResponse" name="UnityEventResponse" style="flex-grow: 1;" />
+    </ui:IMGUIContainer>
+</ui:UXML>

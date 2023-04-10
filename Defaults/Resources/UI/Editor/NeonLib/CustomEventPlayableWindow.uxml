@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:VisualElement class="main-container">
+        <ui:Label text="Clip Type:" />
+        <ui:EnumField name="ClipTypeField" />
+
+        <ui:Label text="Game Event:" />
+        <ui:ObjectField name="GameEventField" objectType="NeonLib.Events.GameEvent" allowSceneObjects="false" />
+
+        <ui:Label text="Micro Game Manager:" />
+        <ui:ObjectField name="MicroGameManagerField" objectType="NeonLib.MicroGameController" allowSceneObjects="true" />
+
+        <ui:Label text="Target State:" />
+        <ui:ObjectField name="TargetStateField" objectType="NeonLib.StateMachine.State" allowSceneObjects="false" />
+    </ui:VisualElement>
+</ui:UXML>
