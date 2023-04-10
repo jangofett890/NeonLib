@@ -1,0 +1,17 @@
+{
+    "name": "NeonLib.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:e586aa134e6900647907adf402c51020",
+        "GUID:343deaaf83e0cee4ca978e7df0b80d21"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

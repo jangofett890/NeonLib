@@ -1,0 +1,16 @@
+NeonLib Custom License
+Copyright (c) 2023 NeonTheCoder
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to use, copy, and modify the Software, subject to the following conditions:
+
+1. Redistributions of the Software in any form, including as part of free or non-commercial games, are permitted without requiring a separate license.
+
+2. Redistributions of the Software in any form, as part of a commercially shipped game, require the purchase of a separate "Game Use License" from the copyright holder.
+
+3. Redistributions of the Software in source or binary form may not be sold or sublicensed without the express written permission of the copyright holder.
+
+4. Redistributions of the Software must retain the above copyright notice, this list of conditions, and the following disclaimer in all copies or substantial portions of the Software.
+
+5. Users may gate their game behind a Patreon, provided that there is a freely available version of the game that does not hamper the abilities of the game. The free version may lack updates compared to the Patreon version.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
