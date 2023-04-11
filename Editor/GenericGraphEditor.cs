@@ -9,6 +9,7 @@ using NeonLib.States;
 using UnityEditor;
 using NeonLib.Templates;
 using UnityEditor.Experimental.GraphView;
+using UnityEngine;
 
 namespace NeonLib.Editor {
     public class GenericGraphEditor<N, G> : UnityEditor.Editor where N : UnityEditor.Experimental.GraphView.Node, new() where G : GraphView, new() {
@@ -36,9 +37,9 @@ namespace NeonLib.Editor {
 
         public override VisualElement CreateInspectorGUI() {
             // Load the UXML
-            _treeAsset = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Scripts/NeonLib/Defaults/Resources/UI/Editor/NeonLib/GenericGraphEditor.uxml");
+            _treeAsset = Resources.Load<VisualTreeAsset>("UI/Editor/NeonLib/GenericGraphEditor.uxml");
             _rootElement = _treeAsset.CloneTree();
-            StyleSheet styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Scripts/NeonLib/Defaults/Resources/UI/Editor/NeonLib/GenericGraphStyles.uss");
+            StyleSheet styleSheet = Resources.Load<StyleSheet>("UI/Editor/NeonLib/GenericGraphStyles.uss");
             _rootElement.styleSheets.Add(styleSheet);
             // Get references to UI elements
             _currentNodesListView = _rootElement.Q<ListView>("currentNodesContainer");
