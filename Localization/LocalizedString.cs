@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace NeonLib.Localization {
-    [CreateAssetMenu(fileName = "Localized String", menuName = "Localization/String", order = 0)]
+    [CreateAssetMenu(fileName = "Localized String", menuName = "NeonLib/Localization/String", order = 0)]
     public class LocalizedString : ScriptableObject {
         [SerializeField]
         private string _Identifier, _DefaultValue;

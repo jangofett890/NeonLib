@@ -9,7 +9,7 @@ using Unity.Plastic.Newtonsoft.Json;
 using UnityEngine;
 [assembly: InternalsVisibleTo("NeonLib.Editor")]
 namespace NeonLib.Variables {
-    [CreateAssetMenu(menuName = "NeonLib/ScriptableVariable", fileName = "ScriptableVariable")]
+    [CreateAssetMenu(menuName = "NeonLib/Variables/Scriptable Variable", fileName = "ScriptableVariable", order = 0)]
     public class ScriptableVariable : ScriptableObject {
         [SerializeReference]
         internal UnityEngine.Object unityObjectValue;

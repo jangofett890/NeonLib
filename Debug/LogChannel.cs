@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 namespace NeonLib.Debugging {
-    [CreateAssetMenu]
+    [CreateAssetMenu(fileName = "LogChannel", menuName = "NeonLib/Debug/Log Channel")]
     public class LogChannel : ScriptableObject {
         public string Name;
         public string Description;

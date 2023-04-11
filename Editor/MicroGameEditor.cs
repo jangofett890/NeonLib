@@ -12,7 +12,7 @@ namespace NeonLib.Editor {
 
 
 
-        [MenuItem("Assets/Create/MicroGames/MicroGame", priority = 0)]
+        [MenuItem("Assets/Create/NeonLib/MicroGames/MicroGame", priority = 0)]
         public static void CreateNewMicroGame() {
             string assetPath = AssetDatabase.GetAssetPath(Selection.activeObject);
 

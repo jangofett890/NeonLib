@@ -4,14 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace NeonLib.Variables {
-    public class RuntimeSet<T> : ScriptableObject {
-        public List<T> Items = new List<T>();
+    [CreateAssetMenu(fileName ="RuntimeSet", menuName = "NeonLib/Variables/Runtime Set")]
+    public class RuntimeSet : ScriptableObject {
+        public List<ScriptableVariable> Items = new List<ScriptableVariable>();
 
         public GameEvent OnListChanged;
         public GameEvent OnItemAdded;
         public GameEvent OnItemRemoved;
 
-        public void Add(T t) {
+        public void Add(ScriptableVariable t) {
             if (Items.Contains(t))
                 return;
 
@@ -20,7 +21,7 @@ namespace NeonLib.Variables {
             OnListChanged?.Invoke(count);
             OnItemAdded?.Invoke(t);
         }
-        public void Remove(T t) {
+        public void Remove(ScriptableVariable t) {
             if (!Items.Contains(t))
                 return;
             int count = Items.Count;
