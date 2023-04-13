@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor;
 
-namespace NeonLib.Gameplay.Dialog {
+namespace NeonLib.Graphing.Dialog {
     public class DialogGraph : EditorWindow {
         
     }

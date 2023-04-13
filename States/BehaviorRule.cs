@@ -1,4 +1,6 @@
 ﻿using NeonLib.Events;
+using NeonLib.Graphing;
+using NeonLib.Graphing.States;
 using NeonLib.Variables;
 using System;
 using System.Collections.Generic;
@@ -6,7 +8,7 @@ using System.Linq;
 using UnityEngine;
 
 namespace NeonLib.States {
-    public class BehaviorRule : ScriptableObject {
+    public class BehaviorRule : ScriptableObject, INodeProvider<BaseStatesNode> {
         public ScriptableVariable[] Variables;
         public string ComparisonID = "compare_equal";
         public ScriptableVariable[] ComparisonOperationParameters;
@@ -17,6 +19,11 @@ namespace NeonLib.States {
             var comparisonMapping = ComparisonMappings.Mappings[ComparisonID];
             isActive = comparisonMapping.ComparisonFunction(Variables, ComparisonOperationParameters);
             return isActive;
+        }
+
+        public BaseStatesNode GetNode() {
+            BehaviorRuleNode node = new(this);
+            return node;
         }
 
         public class ComparisonMapping {

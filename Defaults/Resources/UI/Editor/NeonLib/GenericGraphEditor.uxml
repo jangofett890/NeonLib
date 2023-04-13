@@ -1,30 +1,30 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
     <Style src="project://database/Assets/Scripts/NeonLib/Defaults/Resources/UI/Editor/NeonLib/GenericGraphStyles.uss?fileID=7433441132597879392&amp;guid=64ae1714897cbb54098af3e3ba2e7eba&amp;type=3#GenericGraphStyles" />
-    <ui:VisualElement name="Container">
+    <ui:VisualElement name="Container" style="flex-shrink: 0; flex-grow: 1; min-height: 500px;">
         <ui:VisualElement name="ControlsContainer" style="flex-direction: column; flex-wrap: nowrap; flex-grow: 1; flex-shrink: 0; align-items: auto;">
             <uie:Toolbar name="ControlsToolbar" style="flex-grow: 1; flex-wrap: wrap; flex-shrink: 0; align-items: stretch; height: auto; justify-content: space-around;">
                 <uie:ToolbarSpacer name="Spacer" style="width: 1px; background-color: rgb(35, 35, 35);" />
                 <ui:VisualElement name="AvailableNodesForGraphView" style="flex-grow: 1; flex-shrink: 0;">
                     <ui:VisualElement name="availableNodesToolbarContainer">
                         <uie:Toolbar name="availableNodesToolbar">
-                            <ui:Label text="Available States" display-tooltip-when-elided="true" name="availableNodesLabel" />
+                            <ui:Label text="Available States" display-tooltip-when-elided="true" name="availableNodesLabel" style="-unity-text-align: middle-left;" />
                             <uie:ToolbarSearchField focusable="true" name="availableNodesFilter" style="flex-shrink: 1; flex-grow: 1; width: 50px;" />
                         </uie:Toolbar>
                     </ui:VisualElement>
                     <ui:VisualElement name="availableNodesContainer" style="flex-shrink: 0; flex-grow: 1;">
-                        <ui:ListView focusable="true" selection-type="Multiple" name="availableNodesContainer" binding-path="_nodesAvailableForGraph" />
+                        <ui:ListView focusable="true" selection-type="Multiple" name="availableNodesContainer" binding-path="_nodesAvailableForGraph" class="listView" />
                     </ui:VisualElement>
                 </ui:VisualElement>
                 <uie:ToolbarSpacer name="Spacer" style="width: 1px; background-color: rgb(35, 35, 35);" />
                 <ui:VisualElement name="CurrentNodesInGraphView" style="flex-grow: 1; flex-shrink: 0;">
                     <ui:VisualElement name="currentNodesToolbarContainer">
                         <uie:Toolbar name="currentNodesToolbar">
-                            <ui:Label text="Current States" display-tooltip-when-elided="true" name="currentNodesLabel" />
+                            <ui:Label text="Current States" display-tooltip-when-elided="true" name="currentNodesLabel" style="-unity-text-align: middle-left;" />
                             <uie:ToolbarSearchField focusable="true" name="currentNodesFilter" style="flex-shrink: 1; flex-grow: 1; width: 50px;" />
                         </uie:Toolbar>
                     </ui:VisualElement>
                     <ui:VisualElement name="currentNodesContainer" style="flex-shrink: 0; flex-grow: 1;">
-                        <ui:ListView focusable="true" name="currentNodesContainer" binding-path="_nodesInGraph" reorderable="true" />
+                        <ui:ListView focusable="true" name="currentNodesContainer" binding-path="_nodesInGraph" reorderable="true" class="listView" />
                     </ui:VisualElement>
                 </ui:VisualElement>
                 <uie:ToolbarSpacer name="Spacer" style="width: 1px; background-color: rgb(35, 35, 35);" />
@@ -32,12 +32,15 @@
         </ui:VisualElement>
         <ui:VisualElement name="GraphToolbarContainer">
             <uie:Toolbar name="GraphToolbar">
+                <uie:ToolbarButton text="▼" display-tooltip-when-elided="true" name="ShowHistoryContextMenu" style="font-size: 10px; -unity-text-align: middle-left;" />
                 <uie:ToolbarButton text="←" display-tooltip-when-elided="true" name="Back" />
                 <uie:ToolbarButton text="→" display-tooltip-when-elided="true" name="Forward" />
-                <uie:ToolbarSpacer name="ToolbarSpacer" style="flex-shrink: 0; flex-grow: 1;" />
-                <uie:ToolbarButton text="▼" display-tooltip-when-elided="true" name="ShowHideGraph" />
+                <uie:ToolbarSpacer name="ToolbarSpacer" style="flex-shrink: 0; flex-grow: 1; width: auto;" />
+                <ui:Label text="GraphName" display-tooltip-when-elided="true" name="GraphName" style="-unity-text-align: middle-center;" />
+                <uie:ToolbarSpacer name="ToolbarSpacer" style="flex-shrink: 0; flex-grow: 1; width: 5%;" />
+                <uie:ToolbarButton text="▼" display-tooltip-when-elided="true" name="ShowHideGraph" style="-unity-text-align: middle-left;" />
             </uie:Toolbar>
         </ui:VisualElement>
-        <ui:VisualElement name="GraphViewContainer" />
+        <ui:VisualElement name="GraphViewContainer" class="graphViewContainer" style="flex-shrink: 0; flex-grow: 1; min-height: 35%;" />
     </ui:VisualElement>
 </ui:UXML>

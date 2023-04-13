@@ -7,6 +7,9 @@ namespace NeonLib.States {
         [SerializeField] private State _currentState;
         [SerializeField] private State _previousState;
 
+        public State CurrentState { get { return _currentState; } }
+        public State PreviousState { get { return  _previousState; } }
+
         public void Initialize(State startingState) {
             _previousState = null;
             _currentState = startingState;

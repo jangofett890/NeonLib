@@ -12,21 +12,24 @@ namespace NeonLib.Templates {
         //This list should be populated by the state machine editor, templates should be loadable by their respective object's editor, or one that mimics it
         public List<State> AvailableStates = new List<State>();
 
-        public int StartingStateIndex = 0;
+        public int StartingStateIndex = -1;
 
         public override void Activate(object currentObject) {
             base.Activate(currentObject);
+            if (StartingStateIndex == -1)
+                return;
+
             StateMachine stateMachine = (StateMachine)currentObject;
             State startingState = AvailableStates[StartingStateIndex];
-            if (startingState != null) {
-                stateMachine.Initialize(startingState);
-            }
+            stateMachine?.Initialize(startingState);
         }
 
         public override void Deactivate(object currentObject) {
             base.Deactivate(currentObject);
             StateMachine stateMachine = (StateMachine)currentObject;
-            stateMachine.ResetStateMachine();
+            if (AvailableStates.Contains(stateMachine.CurrentState)) {
+                stateMachine.CurrentState.Exit();
+            }
         }
     }
 }

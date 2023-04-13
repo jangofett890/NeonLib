@@ -24,6 +24,7 @@ namespace NeonLib.Editor {
         protected List<N> _nodesInGraph;
         protected List<N> _nodesAvailableForGraph;
 
+        protected StyleSheet _styleSheet;
 
         protected ListView _currentNodesListView;
         protected ListView _availableNodesListView;
@@ -35,12 +36,16 @@ namespace NeonLib.Editor {
         protected ToolbarSearchField _currentNodesFilter;
         protected ToolbarSearchField _availableNodesFilter;
 
+        protected Label _graphNamePlate;
+
         public override VisualElement CreateInspectorGUI() {
             // Load the UXML
-            _treeAsset = Resources.Load<VisualTreeAsset>("UI/Editor/NeonLib/GenericGraphEditor.uxml");
+            _treeAsset = Resources.Load<VisualTreeAsset>("UI/Editor/NeonLib/GenericGraphEditor");
             _rootElement = _treeAsset.CloneTree();
-            StyleSheet styleSheet = Resources.Load<StyleSheet>("UI/Editor/NeonLib/GenericGraphStyles.uss");
-            _rootElement.styleSheets.Add(styleSheet);
+            if(_styleSheet == null)
+                _styleSheet = Resources.Load<StyleSheet>("UI/Editor/NeonLib/GenericGraphStyles");
+            
+            _rootElement.styleSheets.Add(_styleSheet);
             // Get references to UI elements
             _currentNodesListView = _rootElement.Q<ListView>("currentNodesContainer");
             _availableNodesListView = _rootElement.Q<ListView>("availableNodesContainer");
@@ -52,6 +57,7 @@ namespace NeonLib.Editor {
             _showHideGraphButton = _rootElement.Q<ToolbarButton>("ShowHideGraph");
             _currentNodesFilter = _rootElement.Q<ToolbarSearchField>("currentNodesFilter");
             _availableNodesFilter = _rootElement.Q<ToolbarSearchField>("availableNodesFilter");
+            _graphNamePlate = _rootElement.Q<Label>("GraphName");
 
             // Set up search filter functionality
             _currentNodesFilter.RegisterValueChangedCallback(evt => FilterCurrentNodes(evt.newValue));
@@ -127,7 +133,7 @@ namespace NeonLib.Editor {
             if (_nodesInGraph.Contains(node)) {
                 _nodesInGraph.Remove(node);
                 _graphView.RemoveElement(node);
-                PopulateCurrentNodesListView();
+                _availableNodesListView.Rebuild();
             }
         }
 
@@ -135,25 +141,25 @@ namespace NeonLib.Editor {
             if(!_nodesInGraph.Contains(node)) {
                 _nodesInGraph.Add(node);
                 _graphView.AddElement(node);
+                _availableNodesListView.Rebuild();
             }
         }
 
         protected virtual void InitilizeGraphView() {
             _graphView = new G();
-            _currentGraphViewIndex++;
-            _graphViewHistory.Insert(_currentGraphViewIndex, _graphView);
-            _graphViewHistory.RemoveRange(_currentGraphViewIndex + 1, _graphViewHistory.Count - _currentGraphViewIndex - 1);
+            _graphViewContainer.Clear();
+            _graphViewHistory.Insert(0, _graphView);
             _graphViewContainer.Add(_graphView);
+            _graphView.StretchToParentSize();
+            _graphView.styleSheets.Add(_styleSheet);
+            _graphNamePlate.text = _graphView.name;
         }
 
         private void GoBack() {
             if (_currentGraphViewIndex > 0) {
                 _currentGraphViewIndex--;
                 GraphView previousGraphView = _graphViewHistory[_currentGraphViewIndex];
-
-                _graphViewContainer.Remove(_graphView);
-                _graphView = previousGraphView;
-                _graphViewContainer.Add(_graphView);
+                ChangeGraphView(previousGraphView);
             }
         }
 
@@ -161,11 +167,35 @@ namespace NeonLib.Editor {
             if (_currentGraphViewIndex < _graphViewHistory.Count - 1) {
                 _currentGraphViewIndex++;
                 GraphView nextGraphView = _graphViewHistory[_currentGraphViewIndex];
-
-                _graphViewContainer.Remove(_graphView);
-                _graphView = nextGraphView;
-                _graphViewContainer.Add(_graphView);
+                ChangeGraphView(nextGraphView);
             }
+        }
+
+        protected void ChangeGraphView(GraphView newGraphView) {
+            if (_graphView == newGraphView) {
+                return;
+            }
+
+            // Remove the current graph view from the container
+            _graphViewContainer.Remove(_graphView);
+
+            // Update the history
+            _currentGraphViewIndex++;
+            _graphViewHistory.Insert(_currentGraphViewIndex, newGraphView);
+            _graphViewHistory.RemoveRange(_currentGraphViewIndex + 1, _graphViewHistory.Count - _currentGraphViewIndex - 1);
+
+            // Set the new graph view as the current one and add it to the container
+            _graphView = newGraphView;
+            _graphViewContainer.Add(_graphView);
+            _graphNamePlate.text = _graphView.name;
+        }
+
+        public void RefreshListViews() {
+            _nodesInGraph = GetCurrentNodes();
+            _nodesAvailableForGraph = GetAvailableNodes();
+
+            _currentNodesListView.Rebuild();
+            _availableNodesListView.Rebuild();
         }
 
         protected virtual void PopulateCurrentNodesListView() {
@@ -182,7 +212,7 @@ namespace NeonLib.Editor {
             _availableNodesListView.itemsSource = _nodesInGraph;
             _availableNodesListView.bindItem = (element, i) => {
                 element.Clear();
-                element.Add(new Label(_nodesInGraph[i].name));
+                element.Add(new Label(_nodesAvailableForGraph[i].name));
             };
             _availableNodesListView.onSelectionChange += OnAvailableNodesSelectionChanged;
             _availableNodesListView.onItemsChosen += OnAvailableNodeChosen;
@@ -202,7 +232,7 @@ namespace NeonLib.Editor {
             if (chosenNode != null) {
                 // Implement your logic for adding the chosen available node to the current ones
                 _nodesInGraph.Add(chosenNode);
-                PopulateCurrentNodesListView();
+                _availableNodesListView.Rebuild();
             }
         }
 

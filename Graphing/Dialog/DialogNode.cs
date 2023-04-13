@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor.Experimental.GraphView;
 
-namespace NeonLib.Gameplay.Dialog {
+namespace NeonLib.Graphing.Dialog {
     public class DialogNode : Node {
         public string GUID;
 

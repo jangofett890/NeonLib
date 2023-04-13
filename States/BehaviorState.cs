@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NeonLib.Graphing;
+using NeonLib.Graphing.States;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +8,16 @@ using System.Threading.Tasks;
 using UnityEngine;
 
 namespace NeonLib.States {
-    public class BehaviorState : State {
+    public class BehaviorState : State, INodeProvider<BaseStatesNode> {
         [SerializeField] private List<Behavior> _behaviors;
         [SerializeField] private List<List<BehaviorRule>> _behaviorRules;
 
         private List<Behavior> _activeBehaviors = new List<Behavior>();
+
+        public override BaseStatesNode GetNode() {
+            BehaviorStateNode node = new(this);
+            return node;
+        }
 
         public void Initialize() {
             // does an Initial Check to allow any custom behaviors to initilize before doing first checks

@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scripts/NeonLib/Defaults/Resources/UI/Editor/NeonLib/BaseStatesNode.uss?fileID=7433441132597879392&amp;guid=4caf6ac54e435a04e986e24c1a1527b0&amp;type=3#BaseStatesNode" />
+    <ui:VisualElement name="mainContainer" class="base-states-node">
+        <ui:VisualElement name="headerContainer" class="base-states-node">
+            <ui:TextField picking-mode="Ignore" label="Text Field" value="filler text" text="filler text" name="nodeName" class="base-states-node" />
+        </ui:VisualElement>
+        <ui:VisualElement name="bodyContainer" class="base-states-node" />
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,8 +1,10 @@
 ﻿using NeonLib.Events;
+using NeonLib.Graphing;
+using NeonLib.Graphing.States;
 using UnityEngine;
 
 namespace NeonLib.States {
-    public class Behavior : ScriptableObject {
+    public class Behavior : ScriptableObject, INodeProvider<BaseStatesNode> {
         public GameEvent OnActivate;
         public GameEvent OnUpdate;
         public GameEvent OnDeactivate;
@@ -16,6 +18,11 @@ namespace NeonLib.States {
         }
         public virtual void Deactivate() {
             OnDeactivate?.Invoke();
+        }
+
+        public BaseStatesNode GetNode() {
+            BehaviorNode node = new(this);
+            return node;
         }
     }
 }
