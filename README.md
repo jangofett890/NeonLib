@@ -1,3 +1,5 @@
+The beginning.
+
 NeonLib: A Comprehensive Unity Project Framework
 Overview:
 NeonLib is a comprehensive Unity project framework designed to provide a flexible and extendable environment for game development. It features a collection of versatile packages that cater to various aspects of game mechanics, including GameEvents, MicroGames, StateMachine, IK-PoseRig, WorldStreaming, NPC, Inventories, Templates, a Modding API, ECS/DOTS Integration, Resource/File saving utilities, a Localization system, and a Debug system. Each package is crafted to meet specific needs within a game development project, making it easier for developers to create and maintain complex systems.
